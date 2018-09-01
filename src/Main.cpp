@@ -19,6 +19,7 @@
 #include "main.h"
 #define  DOFs  3     // this macro defines the number of joints of the robotic arm
 //#define  DUMMYMODE   // this macro selects the running mode - see instructions above
+#define numJoints 3
 
 #define  DEBUG_      // if defined, this macro enables the printing of debug
 // statements to the serial port - which can be read with PUTTY
@@ -29,6 +30,8 @@
 Ticker pidTimer;           // implements a timer
 static PIDimp * pid[DOFs]; // pointer to PID controllers (one for each link)
 HIDSimplePacket coms;      // HID packet handlers
+
+static PIDimp * jointData[numJoints];
 
 // The following array contains the "home" positions (in encoder ticks) for each
 // of the robot's joints 
@@ -135,6 +138,7 @@ int main() {
 
 	coms.attach(new PidServer(pid, DOFs));
 	//coms.attach(new PidConfigServer(pid, DOFs));
+	coms.attach(new StatusServer(pid, DOFs));
 
 #ifdef DEBUG_
 	printf("\r\n\r\n Initialization complete. \r\n\r\n");

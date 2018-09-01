@@ -33,6 +33,10 @@ void StatusServer::event(float * packet){
 	      packet[(i*3)+0] = position;
 	      packet[(i*3)+1] = velocity;
 	      packet[(i*3)+2] = torque;
+
+	      /*packet[0,i] = position;
+	      packet[1,i] = velocity;
+	      packet[2,i] = torque;*/
 	    }
 }
 
