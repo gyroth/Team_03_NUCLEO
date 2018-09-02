@@ -31,11 +31,9 @@ Ticker pidTimer;           // implements a timer
 static PIDimp * pid[DOFs]; // pointer to PID controllers (one for each link)
 HIDSimplePacket coms;      // HID packet handlers
 
-static PIDimp * jointData[numJoints];
-
 // The following array contains the "home" positions (in encoder ticks) for each
 // of the robot's joints 
-float homePosition[3] = {-1052.75,3052.50,-2052.50};
+float homePosition[3] = {-1036.35,-1082.55,2042.97};
 
 void runPid() {
 	// update all positions fast and together
