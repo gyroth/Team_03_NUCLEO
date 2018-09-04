@@ -35,8 +35,8 @@ HIDSimplePacket coms;      // HID packet handlers
 // of the robot's joints 
 
 
-float homePosition[3] = {-1061.75,-1084.25,2041.5};	//set to 0 at initilization
-//static float * homePosition[3] = {0,0,0};		//tried to make a pointer
+//float homePosition[3] = {-1061.75,-1084.25,2041.5};	//set to 0 at initilization
+float homePosition[3] = {0,0,0};
 
 void runPid() {
 	// update all positions fast and together

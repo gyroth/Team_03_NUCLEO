@@ -16,7 +16,8 @@ void CalibrateServer::event(float * packet) {
 
 	for (int i = 0; i < myNumJoints; i++) // for each joint,
 			{	//setting the encoder reading in reference to new homePositions
-		myJointData[i]->pidReset(0);
+		myJointData[i]->pidReset(myJointData[i]->GetPIDPosition() - packet[i]);
+
 	}
 }
 
