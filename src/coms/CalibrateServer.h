@@ -19,15 +19,15 @@ class CalibrateServer: public PacketEventAbstract{
 private:
 	PIDimp ** myJointData;
 	int myNumJoints;
-	float * myHome;
 
 public:
   // Packet ID needs to be set
-   CalibrateServer (PIDimp ** jointData, int numJoints, float * homePosition)
+   CalibrateServer (PIDimp ** jointData, int numJoints)
    : PacketEventAbstract(CALIBRATE_SERVER_ID){
+
 	   myJointData = jointData;
 	   myNumJoints = numJoints;
-	   myHome = homePosition;
+
   }
 
   //User function to be called when a packet comes in
