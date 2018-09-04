@@ -1,30 +1,33 @@
 /*
- * CailbrateServer.h
+ * CalibrateServer.h
  *
- *  Created on: Sep 2, 2018
+ *  Created on: Sep 3, 2018
  *      Author: ocsmith
  */
 
-#ifndef  CalibrateServer_H
-#define CailbrateServer_H
+#ifndef CALIBRATESERVER_H_
+#define CALIBRATESERVER_H_
+
 #include <PID_Bowler.h>
 #include <PacketEvent.h>
 #include "../drivers/MyPid.h"
 #include <cmath>        // std::abs
 
 #define CALIBRATE_SERVER_ID 25
-class StatusServer: public PacketEventAbstract{
+class CalibrateServer: public PacketEventAbstract{
 
 private:
 	PIDimp ** myJointData;
 	int myNumJoints;
+	float * myHome;
 
 public:
   // Packet ID needs to be set
-   StatusServer (PIDimp ** jointData, int numJoints)
+   CalibrateServer (PIDimp ** jointData, int numJoints, float * homePosition)
    : PacketEventAbstract(CALIBRATE_SERVER_ID){
 	   myJointData = jointData;
 	   myNumJoints = numJoints;
+	   myHome = homePosition;
   }
 
   //User function to be called when a packet comes in
@@ -34,4 +37,7 @@ public:
 };
 
 
-#endif /* end of include guard: Pid_server */
+
+
+
+#endif /* CALIBRATESERVER_H_ */
