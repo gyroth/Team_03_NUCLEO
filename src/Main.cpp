@@ -121,7 +121,8 @@ int main() {
 		// Finally, enable PID control
 		pid[i]->SetPIDEnabled(true);
 		pid[i]->SetPIDTimed(pid[i]->GetPIDPosition(), 1000); // !FIXME What does this instruction do?
-	}
+		pid[i]->setPIDConstants(.004,0,.009); //sets the PID constants for the arm
+			}
 
 	/*
 	 * ======= PART 2b: Initialize HID communication =============================
