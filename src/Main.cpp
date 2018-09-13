@@ -21,7 +21,7 @@
 //#define  DUMMYMODE   // this macro selects the running mode - see instructions above
 #define numJoints 3
 
-#define  DEBUG_      // if defined, this macro enables the printing of debug
+//#define  DEBUG_      // if defined, this macro enables the printing of debug
 // statements to the serial port - which can be read with PUTTY
 
 /*
