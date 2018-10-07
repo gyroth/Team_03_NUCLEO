@@ -20,6 +20,7 @@
 #include "coms/DummyServer.h"
 #include "coms/StatusServer.h"
 #include "coms/CalibrateServer.h"
+#include "coms/GripperServer.h"
 // DEFINES
 #define REV2
 //#define REV1
