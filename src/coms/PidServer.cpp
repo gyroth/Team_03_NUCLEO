@@ -95,10 +95,17 @@ void PidServer::event(float * packet){
     {
       float position = myPidObjects[i]->GetPIDPosition();
       float velocity = myPidObjects[i]->getVelocity();
+
       float torque   = myPidObjects[i]->loadCell->read();
+
+      //Sums 9 torque readings
+      for(int j = 0; j<9;j++)
+      {
+    	  torque += myPidObjects[i]->loadCell->read();
+      }
 
       packet[(i*3)+0] = position;
       packet[(i*3)+1] = velocity;
-      packet[(i*3)+2] = torque; 
+      packet[(i*3)+2] = torque/10; //returns the average of 10 readings
     }
 }
